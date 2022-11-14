@@ -1,3 +1,5 @@
+package logic;
+
 import functionalities.TableBuilder;
 import functionalities.actionsPlayer;
 

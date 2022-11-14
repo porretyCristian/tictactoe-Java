@@ -1,4 +1,4 @@
-package functionalities;
+package logic.functionalities;
 
 public class TableBuilder {
     private int columns;

@@ -1,3 +1,5 @@
+package logic;
+
 import functionalities.*;
 
 import java.time.LocalTime;
