@@ -35,7 +35,7 @@ public class TableBuilder {
             int figureEquals = 0;
             int specificIndexColumn = 0;
             for (String[] row : table) {
-                figureEquals = (row[specificIndexColumn].equalsIgnoreCase(figure.toString())) ? +1 : 0;
+                figureEquals = (row[specificIndexColumn].equalsIgnoreCase(figure.toString())) ? figureEquals+1 : 0;
                 specificIndexColumn++;
             }
             return figureEquals == table[0].length;
@@ -45,7 +45,7 @@ public class TableBuilder {
             int figureEquals = 0;
             int specificIndexColumn = table[0].length - 1;
             for (String[] row : table) {
-                figureEquals = (row[specificIndexColumn].equalsIgnoreCase(figure.toString())) ? +1 : 0;
+                figureEquals = (row[specificIndexColumn].equalsIgnoreCase(figure.toString())) ? figureEquals+1 : 0;
                 specificIndexColumn--;
             }
             return figureEquals == table[0].length;
@@ -56,7 +56,7 @@ public class TableBuilder {
             boolean areEquals = false;
             for(String[] row:table){
                 for(String column:row) {
-                    figureEquals = (column.equalsIgnoreCase(figure.toString())) ? +1 : 0;
+                    figureEquals = (column.equalsIgnoreCase(figure.toString())) ? figureEquals+1 : 0;
                 }
                 if(figureEquals == row.length){
                     areEquals = true;
@@ -72,7 +72,7 @@ public class TableBuilder {
             boolean areEquals = false;
             for(int indexRowToColumn = 0; indexRowToColumn < table.length; indexRowToColumn++){
                 for(int indexRow = 0; indexRow < table.length; indexRow++) {
-                    figureEquals = (table[indexRow][indexRowToColumn].equalsIgnoreCase(figure.toString())) ? +1 : 0;
+                    figureEquals = (table[indexRow][indexRowToColumn].equalsIgnoreCase(figure.toString())) ? figureEquals+1 : 0;
                 }
                 if(figureEquals == table[0].length){
                     areEquals = true;

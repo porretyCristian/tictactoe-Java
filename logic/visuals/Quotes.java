@@ -19,4 +19,8 @@ public class Quotes {
         System.out.println("\ncolumna: ");
         return input.nextInt();
     }
+
+    public static void winnerQuote(String figure){
+        System.out.println("el ganador ha sido: " + figure);
+    }
 }
