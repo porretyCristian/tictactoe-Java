@@ -13,6 +13,7 @@ public class SinglePlayer {
         Scanner input = new Scanner(System.in);
         CPU cpu = new CPU("CPU", TableBuilder.VerifieTheWinner.PlayerShape.X);
         String figuresPlayers[] = {player.getFigure(), cpu.getFigure()};
-
+        actionsPlayer playerMovements[] = {player, cpu};
+        System.out.println("de cuanto quieres las medidas de la tabla");
     }
 }
