@@ -1,7 +1,6 @@
 package logic;
 
-import functionalities.TableBuilder;
-import functionalities.actionsPlayer;
+import logic.functionalities.*;
 
 public class CPU extends Player implements actionsPlayer {
 

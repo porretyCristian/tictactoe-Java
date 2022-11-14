@@ -1,6 +1,6 @@
 package logic;
 
-import functionalities.*;
+import logic.functionalities.*;
 
 import java.time.LocalTime;
 

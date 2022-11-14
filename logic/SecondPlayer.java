@@ -1,6 +1,6 @@
 package logic;
 
-import functionalities.*;
+import logic.functionalities.*;
 
 public class SecondPlayer extends Player implements actionsPlayer{
 
