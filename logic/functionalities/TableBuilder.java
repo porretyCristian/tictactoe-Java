@@ -3,7 +3,7 @@ package logic.functionalities;
 public class TableBuilder {
     private int columns;
     private int rows;
-    public TableBuilder(int columns, int rows){
+    public TableBuilder(int rows, int columns){
         this.columns = columns;
         this.rows = rows;
     }
@@ -23,7 +23,7 @@ public class TableBuilder {
             for(int j = 0; j < columns; j++){
                 System.out.print(table[i][j] + ("   "));
             }
-            System.out.println();
+            System.out.println("\n");
         }
     }
 
