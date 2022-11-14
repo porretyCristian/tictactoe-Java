@@ -1,8 +1,9 @@
+import functionalities.TableBuilder;
 import functionalities.actionsPlayer;
 
-public class CPU implements actionsPlayer{
-    @Override
-    public void moveFigure(int row, int column) {
+public class CPU extends Player implements actionsPlayer {
 
+    public CPU(String name, TableBuilder.VerifieTheWinner.PlayerShape figure) {
+        super(name, figure);
     }
 }
