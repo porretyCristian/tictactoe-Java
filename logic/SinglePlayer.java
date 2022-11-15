@@ -39,6 +39,6 @@ public class SinglePlayer {
         System.out.flush();
         tableBuilder.tablePrinter(table);
         Quotes.winnerQuote(figuresPlayers[turno]);
-        player.setCoins((turno == 1) ? player.getCoins()+20 : player.getCoins()+0);
+        player.setCoins((turno == 0) ? player.getCoins()+20 : player.getCoins()+0);
     }
 }
