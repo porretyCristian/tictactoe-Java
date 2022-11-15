@@ -18,10 +18,6 @@ public class Player implements actionsPlayer{
         return coins;
     }
 
-    public String getFigure() {
-        return figure.toString();
-    }
-
     public void setBestRecordTime(LocalTime bestRecordTime) {
         this.bestRecordTime = bestRecordTime;
     }
@@ -40,6 +36,6 @@ public class Player implements actionsPlayer{
 
     @Override
     public void moveFigure(int row, int column, String[][] table) {
-        table[row][column] = this.getFigure();
+        table[row][column] = figure.toString();
     }
 }

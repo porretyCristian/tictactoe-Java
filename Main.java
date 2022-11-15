@@ -1,10 +1,11 @@
-import logic.*;
 import logic.functionalities.TableBuilder;
+import logic.gameModes.SinglePlayer;
+import logic.players.Player;
 
 import javax.swing.*;
 
 public class Main {
-    public static void main(String args[]) throws InterruptedException {
+    public static void main(String args[]) throws Exception {
         TableBuilder
                 .VerifieTheWinner
                 .PlayerShape figure = TableBuilder

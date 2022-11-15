@@ -1,12 +1,27 @@
 package logic.functionalities;
-
+import logic.validations.validateSize;
 public class TableBuilder {
     private int columns;
     private int rows;
-    public TableBuilder(int rows, int columns){
-        this.columns = columns;
-        this.rows = rows;
+
+    public TableBuilder(int rows, int columns) throws Exception {
+        setRows(rows);
+        setColumns(columns);
     }
+
+    public void setColumns(int columns) throws Exception {
+        if(validateSize.lessSizeSuported(columns)){ throw new Exception("valor demasiado pequeño, minimo 3"); }
+        else{ this.columns = columns; }
+    }
+
+    public void setRows(int rows) throws Exception {
+        if(validateSize.lessSizeSuported(rows)){ throw new Exception("valor demasiado pequeño, minimo 3"); }
+        else{ this.rows = rows; }
+    }
+
+    public int getColumns() {return columns;}
+
+    public int getRows() {return rows;}
 
     public String[][] table(){
         String table[][] = new String[rows][columns];
@@ -17,10 +32,6 @@ public class TableBuilder {
         }
         return table;
     }
-
-    public int getColumns() {return columns;}
-
-    public int getRows() {return rows;}
 
     public static class VerifieTheWinner {
 

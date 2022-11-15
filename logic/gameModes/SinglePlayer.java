@@ -1,8 +1,8 @@
 package logic.gameModes;
-import logic.players.CPU;
-import logic.players.Player;
+import logic.players.*;
 import logic.visuals.*;
 import logic.functionalities.*;
+import logic.validations.validateSize;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Random;
@@ -11,13 +11,13 @@ import java.util.Scanner;
 public class SinglePlayer {
     protected ArrayList<String> historial = new ArrayList<>();
     private LocalTime bestRecordTimeOnSingle;
-    public static void startSinglePLayer(Player player) throws InterruptedException {
+    public static void startSinglePLayer(Player player) throws Exception {
         Scanner input = new Scanner(System.in);
         CPU cpu = new CPU("CPU", TableBuilder.VerifieTheWinner.PlayerShape.X);
-        String[] figuresPlayers = {player.getFigure(), cpu.getFigure()};
+        String[] figuresPlayers = {player.figure.toString(), cpu.figure.toString()};
         actionsPlayer[] playerMovements = {player, cpu};
         Quotes.choseSizeMessage();
-        TableBuilder tableBuilder = new TableBuilder(Quotes.rowsMessage(input), Quotes.columnMessage(input));
+        TableBuilder tableBuilder = new TableBuilder(Quotes.rowsSizeMessage(input), Quotes.columnSizeMessage(input));
         String[][] table = tableBuilder.table();
         Random random = new Random();
         Quotes.flippingTheCoin();
@@ -28,7 +28,7 @@ public class SinglePlayer {
             Quotes.chosingTheTurn(figuresPlayers[turno]);
             if(turno == 0){
                 Quotes.chosePlaceMessage();
-                playerMovements[turno].moveFigure(Quotes.rowsMessage(input) - 1, Quotes.columnMessage(input) - 1, table);
+                playerMovements[turno].moveFigure(Quotes.rowMoveMessage(input, tableBuilder) - 1, Quotes.columnMoveMessage(input, tableBuilder) - 1, table);
             }else{
                 Quotes.waitTheOponent();
                 playerMovements[turno].moveFigure(random.nextInt(tableBuilder.getRows()),

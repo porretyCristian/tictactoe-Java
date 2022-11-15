@@ -1,22 +1,37 @@
 package logic.visuals;
+import logic.functionalities.TableBuilder;
+import logic.validations.validateSize;
 import java.util.Scanner;
-
 public class Quotes {
     public static void choseSizeMessage(){
-        System.out.println("escoge el numero en");
+        System.out.println("escoge el numero de...");
     }
 
     public static void chosePlaceMessage(){
         System.out.println("a que posicion te quieres mover especificamente");
     }
 
-    public static int rowsMessage(Scanner input){
-        System.out.print("fila: ");
+    public static int rowsSizeMessage(Scanner input){
+        System.out.print("filas: ");
         return input.nextInt();
     }
-    public static int columnMessage(Scanner input){
-        System.out.print("\ncolumna: ");
+    public static int columnSizeMessage(Scanner input){
+        System.out.print("\ncolumnas: ");
         return input.nextInt();
+    }
+
+    public static int rowMoveMessage(Scanner input, TableBuilder table) throws Exception {
+        System.out.print("fila: ");
+        int row = input.nextInt();
+        if(validateSize.rowOutOfRange(row, table)){ throw new Exception("el valor de movimiento esta fuera del rango soportado por el tamaño de la tabla"); }
+        else { return row; }
+    }
+
+    public static int columnMoveMessage(Scanner input, TableBuilder table) throws Exception {
+        System.out.print("columna: ");
+        int columna = input.nextInt();
+        if(validateSize.rowOutOfRange(columna, table)){ throw new Exception("el valor de movimiento esta fuera del rango soportado por el tamaño de la tabla"); }
+        else { return columna; }
     }
 
     public static void chosingTheTurn(String figure) throws InterruptedException{
