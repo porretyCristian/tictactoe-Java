@@ -1,4 +1,4 @@
-package logic;
+package logic.features;
 
 import logic.functionalities.*;
 

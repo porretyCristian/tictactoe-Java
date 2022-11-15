@@ -1,4 +1,4 @@
-package logic;
+package logic.players;
 
 import logic.functionalities.*;
 

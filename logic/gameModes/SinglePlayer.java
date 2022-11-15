@@ -1,4 +1,6 @@
-package logic;
+package logic.gameModes;
+import logic.players.CPU;
+import logic.players.Player;
 import logic.visuals.*;
 import logic.functionalities.*;
 import java.time.LocalTime;

@@ -1,6 +1,6 @@
-package logic;
+package logic.gameModes;
 
-import logic.functionalities.*;
+import logic.gameModes.SinglePlayer;
 
 import java.time.LocalTime;
 
