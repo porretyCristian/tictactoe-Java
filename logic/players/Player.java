@@ -7,7 +7,7 @@ import java.time.LocalTime;
 public class Player implements actionsPlayer{
     protected String name;
     private LocalTime bestRecordTime;
-    protected TableBuilder.VerifieTheWinner.PlayerShape figure;
+    public TableBuilder.VerifieTheWinner.PlayerShape figure;
     private int coins;
     public Player(String name, TableBuilder.VerifieTheWinner.PlayerShape figure){
         setName(name);

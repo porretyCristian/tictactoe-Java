@@ -9,7 +9,7 @@ public class TableBuilder {
     }
 
     public String[][] table(){
-        String table[][] = new String[columns][rows];
+        String table[][] = new String[rows][columns];
         for(String[] row:table){
             for(int i = 0; i < columns; i++){
                 row[i] = "*";
@@ -18,14 +18,9 @@ public class TableBuilder {
         return table;
     }
 
-    public void tablePrinter(String[][] table){
-        for(int i = 0; i < rows; i++){
-            for(int j = 0; j < columns; j++){
-                System.out.print(table[i][j] + ("   "));
-            }
-            System.out.println("\n");
-        }
-    }
+    public int getColumns() {return columns;}
+
+    public int getRows() {return rows;}
 
     public static class VerifieTheWinner {
 
