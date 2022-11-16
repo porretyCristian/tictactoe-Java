@@ -35,7 +35,7 @@ public class Quotes {
     }
 
     public static void chosingTheTurn(String figure) throws InterruptedException{
-        System.out.println("le toca a... " + figure);
+        System.out.println("empieza " + figure);
         Thread.sleep(1000);
     }
 
@@ -46,6 +46,11 @@ public class Quotes {
 
     public static void waitTheOponent() throws InterruptedException {
         System.out.println("esperando a tu oponente");
+        Thread.sleep(2000);
+    }
+
+    public static void placeOcupedMessage() throws InterruptedException{
+        System.out.println("ese lugar ya esta ocupado");
         Thread.sleep(2000);
     }
 

@@ -1,5 +1,6 @@
 package logic.functionalities;
 import logic.validations.validateSize;
+import logic.features.Stuffs;
 public class TableBuilder {
     private int columns;
     private int rows;
@@ -34,10 +35,7 @@ public class TableBuilder {
     }
 
     public static class VerifieTheWinner {
-
-        public enum PlayerShape {O, X}
-
-        private static boolean winnerDiagonal(String table[][], PlayerShape figure) {
+        private static boolean winnerDiagonal(String table[][], Stuffs.OriginalShape figure) {
             int figureEquals = 0;
             int specificIndexColumn = 0;
             for (String[] row : table) {
@@ -47,7 +45,7 @@ public class TableBuilder {
             return figureEquals == table[0].length;
         }
 
-        private static boolean winnerOpossiteDiagonal(String table[][], PlayerShape figure) {
+        private static boolean winnerOpossiteDiagonal(String table[][], Stuffs.OriginalShape figure) {
             int figureEquals = 0;
             int specificIndexColumn = table[0].length - 1;
             for (String[] row : table) {
@@ -57,7 +55,7 @@ public class TableBuilder {
             return figureEquals == table[0].length;
         }
 
-        private static boolean winnerInRow(String table[][], PlayerShape figure){
+        private static boolean winnerInRow(String table[][], Stuffs.OriginalShape figure){
             int figureEquals = 0;
             boolean areEquals = false;
             for(String[] row:table){
@@ -73,7 +71,7 @@ public class TableBuilder {
             return areEquals;
         }
 
-        private static boolean winnerInColumn(String table[][], PlayerShape figure){
+        private static boolean winnerInColumn(String table[][], Stuffs.OriginalShape figure){
             int figureEquals = 0;
             boolean areEquals = false;
             for(int indexRowToColumn = 0; indexRowToColumn < table.length; indexRowToColumn++){
@@ -88,7 +86,7 @@ public class TableBuilder {
             }
             return areEquals;
         }
-        public static boolean verifieWinner(String table[][], PlayerShape figure){
+        public static boolean verifieWinner(String table[][], Stuffs.OriginalShape figure){
             return (winnerInColumn(table, figure) || winnerInRow(table, figure)
                     || winnerOpossiteDiagonal(table, figure) || winnerDiagonal(table, figure));
         }

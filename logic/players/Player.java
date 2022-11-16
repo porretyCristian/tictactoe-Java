@@ -1,15 +1,15 @@
 package logic.players;
 
 import logic.functionalities.*;
-
+import logic.features.Stuffs;
 import java.time.LocalTime;
 
 public class Player implements actionsPlayer{
     protected String name;
     private LocalTime bestRecordTime;
-    public TableBuilder.VerifieTheWinner.PlayerShape figure;
+    public Stuffs.OriginalShape figure;
     private int coins;
-    public Player(String name, TableBuilder.VerifieTheWinner.PlayerShape figure){
+    public Player(String name, Stuffs.OriginalShape figure){
         setName(name);
         setFigure(figure);
     }
@@ -30,7 +30,7 @@ public class Player implements actionsPlayer{
         this.coins = coins;
     }
 
-    public void setFigure(TableBuilder.VerifieTheWinner.PlayerShape figure) {
+    public void setFigure(Stuffs.OriginalShape figure) {
         this.figure = figure;
     }
 
