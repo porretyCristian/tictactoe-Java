@@ -15,7 +15,7 @@ public class SinglePlayer {
     private LocalTime bestRecordTimeOnSingle;
     public static void startSinglePLayer(Player player) throws Exception {
         Scanner input = new Scanner(System.in);
-        CPU cpu = new CPU(Stuffs.OriginalShape.X);
+        CPU cpu = new CPU(Stuffs.Shapes.X);
         String[] figuresPlayers = {player.figure.toString(), cpu.figure.toString()};
         actionsPlayer[] playerMovements = {player, cpu};
         Quotes.choseSizeMessage();

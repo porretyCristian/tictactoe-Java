@@ -5,7 +5,7 @@ import logic.functionalities.*;
 
 public class SecondPlayer extends Player implements actionsPlayer{
 
-    public SecondPlayer(String name, Stuffs.OriginalShape figure) {
-        super(name, figure);
+    public SecondPlayer(String name, Stuffs.Shapes figure) {
+        super(name);
     }
 }

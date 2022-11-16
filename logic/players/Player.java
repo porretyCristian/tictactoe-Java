@@ -7,11 +7,10 @@ import java.time.LocalTime;
 public class Player implements actionsPlayer{
     protected String name;
     private LocalTime bestRecordTime;
-    public Stuffs.OriginalShape figure;
+    public Stuffs.Shapes figure;
     private int coins;
-    public Player(String name, Stuffs.OriginalShape figure){
+    public Player(String name){
         setName(name);
-        setFigure(figure);
     }
 
     public int getCoins() {
@@ -30,7 +29,7 @@ public class Player implements actionsPlayer{
         this.coins = coins;
     }
 
-    public void setFigure(Stuffs.OriginalShape figure) {
+    public void setFigure(String figure) {
         this.figure = figure;
     }
 

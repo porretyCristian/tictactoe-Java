@@ -5,13 +5,13 @@ import logic.functionalities.*;
 
 public class CPU implements actionsPlayer {
     public final String name = "CPU";
-    public Stuffs.OriginalShape figure;
+    public Stuffs.Shapes figure;
 
-    public CPU(Stuffs.OriginalShape figure) {
+    public CPU(Stuffs.Shapes figure) {
         setFigure(figure);
     }
 
-    public void setFigure(Stuffs.OriginalShape figure) {
+    public void setFigure(Stuffs.Shapes figure) {
         this.figure = figure;
     }
 
