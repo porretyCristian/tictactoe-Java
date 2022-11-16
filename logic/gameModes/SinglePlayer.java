@@ -4,14 +4,13 @@ import logic.players.*;
 import logic.visuals.*;
 import logic.functionalities.*;
 import logic.validations.validateOcupedPlace;
+import java.time.Duration;
+import java.time.Instant;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class SinglePlayer {
-    protected ArrayList<String> historial = new ArrayList<>();
+    protected static Dictionary<ArrayList<String>, Integer> historial = new Hashtable<>();
     private LocalTime bestRecordTimeOnSingle;
     public static void startSinglePLayer(Player player) throws Exception {
         Scanner input = new Scanner(System.in);
@@ -25,6 +24,7 @@ public class SinglePlayer {
         Quotes.flippingTheCoin();
         int turno = random.nextInt(2);
         Quotes.chosingTheTurn(figuresPlayers[turno]);
+        Instant startGame = Instant.now();
         do {
             TablePrinter.tablePrinter(table, tableBuilder.getRows(), tableBuilder.getColumns());
             int row, column;
@@ -52,5 +52,15 @@ public class SinglePlayer {
         TablePrinter.tablePrinter(table, tableBuilder.getRows(), tableBuilder.getColumns());
         Quotes.winnerQuote(figuresPlayers[(turno == 1) ? 0 : 1]);
         player.setCoins((turno == 1) ? player.getCoins()+20 : player.getCoins());
+        Instant endGame = Instant.now();
+        SinglePlayer.setHistorial(player.figure, player.getName(),
+                            (int) Duration.between(startGame, endGame).toMillis()/1000);
+    }
+
+    public static void setHistorial(String figure, String name, int time) {
+        ArrayList<String> nameAndFigureList = new ArrayList<>();
+        nameAndFigureList.add(figure);
+        nameAndFigureList.add(name);
+        historial.put(nameAndFigureList, time);
     }
 }

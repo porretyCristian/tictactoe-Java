@@ -1,33 +1,25 @@
 package logic.players;
 
 import logic.functionalities.*;
-import logic.features.Shapes;
-import java.time.LocalTime;
 
 public class Player implements actionsPlayer{
     protected String name;
-    private LocalTime bestRecordTime;
+    private int bestRecordTime;
     public String figure;
     private int coins;
-    public Player(String name){
-        setName(name);
-    }
+    public Player(String name){ setName(name); }
 
-    public int getCoins() {
-        return coins;
-    }
+    public String getName(){ return name; }
 
-    public void setBestRecordTime(LocalTime bestRecordTime) {
-        this.bestRecordTime = bestRecordTime;
-    }
+    public int getCoins() { return coins; }
 
-    public void setName(String name){
-        this.name = name;
-    }
+    public int getBestRecordTime(){ return bestRecordTime; }
 
-    public void setCoins(int coins) {
-        this.coins = coins;
-    }
+    public void setBestRecordTime(int bestRecordTime) { this.bestRecordTime = bestRecordTime; }
+
+    public void setName(String name){ this.name = name; }
+
+    public void setCoins(int coins) { this.coins = coins; }
 
     public void setFigure(String figure) {
         this.figure = figure;

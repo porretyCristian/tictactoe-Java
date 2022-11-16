@@ -17,6 +17,7 @@ public class ShowTheShapesAvaliables {
                 System.out.print("  " + shape.figure);
             }
         }
+        System.out.println();
         String figure = JOptionPane.showInputDialog("Chose your shape:").toUpperCase();
         if(!(CoinsValidation.enoughMoney(Shapes.values(), figure, player))){
             throw new Exception("esa figura no esta entre las disponibles");
