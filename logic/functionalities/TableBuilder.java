@@ -1,6 +1,5 @@
 package logic.functionalities;
 import logic.validations.validateSize;
-import logic.features.Stuffs;
 public class TableBuilder {
     private int columns;
     private int rows;
@@ -35,32 +34,32 @@ public class TableBuilder {
     }
 
     public static class VerifieTheWinner {
-        private static boolean winnerDiagonal(String table[][], Stuffs.Shapes figure) {
+        private static boolean winnerDiagonal(String table[][], String figure) {
             int figureEquals = 0;
             int specificIndexColumn = 0;
             for (String[] row : table) {
-                figureEquals = (row[specificIndexColumn].equalsIgnoreCase(figure.toString())) ? figureEquals+1 : 0;
+                figureEquals = (row[specificIndexColumn].equalsIgnoreCase(figure)) ? figureEquals+1 : 0;
                 specificIndexColumn++;
             }
             return figureEquals == table[0].length;
         }
 
-        private static boolean winnerOpossiteDiagonal(String table[][], Stuffs.Shapes figure) {
+        private static boolean winnerOpossiteDiagonal(String table[][], String figure) {
             int figureEquals = 0;
             int specificIndexColumn = table[0].length - 1;
             for (String[] row : table) {
-                figureEquals = (row[specificIndexColumn].equalsIgnoreCase(figure.toString())) ? figureEquals+1 : 0;
+                figureEquals = (row[specificIndexColumn].equalsIgnoreCase(figure)) ? figureEquals+1 : 0;
                 specificIndexColumn--;
             }
             return figureEquals == table[0].length;
         }
 
-        private static boolean winnerInRow(String table[][], Stuffs.Shapes figure){
+        private static boolean winnerInRow(String table[][], String figure){
             int figureEquals = 0;
             boolean areEquals = false;
             for(String[] row:table){
                 for(String column:row) {
-                    figureEquals = (column.equalsIgnoreCase(figure.toString())) ? figureEquals+1 : 0;
+                    figureEquals = (column.equalsIgnoreCase(figure)) ? figureEquals+1 : 0;
                 }
                 if(figureEquals == row.length){
                     areEquals = true;
@@ -71,12 +70,12 @@ public class TableBuilder {
             return areEquals;
         }
 
-        private static boolean winnerInColumn(String table[][], Stuffs.Shapes figure){
+        private static boolean winnerInColumn(String table[][], String figure){
             int figureEquals = 0;
             boolean areEquals = false;
             for(int indexRowToColumn = 0; indexRowToColumn < table.length; indexRowToColumn++){
                 for(int indexRow = 0; indexRow < table.length; indexRow++) {
-                    figureEquals = (table[indexRow][indexRowToColumn].equalsIgnoreCase(figure.toString())) ? figureEquals+1 : 0;
+                    figureEquals = (table[indexRow][indexRowToColumn].equalsIgnoreCase(figure)) ? figureEquals+1 : 0;
                 }
                 if(figureEquals == table[0].length){
                     areEquals = true;
@@ -86,7 +85,7 @@ public class TableBuilder {
             }
             return areEquals;
         }
-        public static boolean verifieWinner(String table[][], Stuffs.Shapes figure){
+        public static boolean verifieWinner(String table[][], String figure){
             return (winnerInColumn(table, figure) || winnerInRow(table, figure)
                     || winnerOpossiteDiagonal(table, figure) || winnerDiagonal(table, figure));
         }

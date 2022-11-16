@@ -1,17 +1,15 @@
 import logic.functionalities.TableBuilder;
 import logic.gameModes.SinglePlayer;
 import logic.players.Player;
-
+import logic.features.Shapes;
+import logic.functionalities.*;
 import javax.swing.*;
 
 public class Main {
     public static void main(String args[]) throws Exception {
-        TableBuilder
-                .VerifieTheWinner
-                .PlayerShape figure = TableBuilder
-                                        .VerifieTheWinner
-                                        .PlayerShape.valueOf(JOptionPane.showInputDialog("Chose your shape:"));
-        Player player = new Player("federico", figure);
+
+        Player player = new Player("federico");
+        player.setFigure(ShowTheShapesAvaliables.shapesAvaliables(player));
         SinglePlayer.startSinglePLayer(player);
     }
 }

@@ -1,17 +1,17 @@
 package logic.players;
 
-import logic.features.Stuffs;
+import logic.features.Shapes;
 import logic.functionalities.*;
 
 public class CPU implements actionsPlayer {
     public final String name = "CPU";
-    public Stuffs.Shapes figure;
+    public String figure;
 
-    public CPU(Stuffs.Shapes figure) {
+    public CPU(String figure) {
         setFigure(figure);
     }
 
-    public void setFigure(Stuffs.Shapes figure) {
+    public void setFigure(String figure) {
         this.figure = figure;
     }
 

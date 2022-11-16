@@ -1,5 +1,5 @@
 package logic.gameModes;
-import logic.features.Stuffs;
+import logic.features.Shapes;
 import logic.players.*;
 import logic.visuals.*;
 import logic.functionalities.*;
@@ -15,7 +15,7 @@ public class SinglePlayer {
     private LocalTime bestRecordTimeOnSingle;
     public static void startSinglePLayer(Player player) throws Exception {
         Scanner input = new Scanner(System.in);
-        CPU cpu = new CPU(Stuffs.Shapes.X);
+        CPU cpu = new CPU(Shapes.X.figure);
         String[] figuresPlayers = {player.figure.toString(), cpu.figure.toString()};
         actionsPlayer[] playerMovements = {player, cpu};
         Quotes.choseSizeMessage();
@@ -32,7 +32,7 @@ public class SinglePlayer {
                 Quotes.chosePlaceMessage();
                 row = Quotes.rowMoveMessage(input, tableBuilder) - 1;
                 column = Quotes.columnMoveMessage(input, tableBuilder) - 1;
-                if(validateOcupedPlace.isOcuped(table[row][column], player.figure.constantToString())){
+                if(validateOcupedPlace.isOcuped(table[row][column], Shapes.shapesList())){
                     Quotes.placeOcupedMessage();
                     continue;
                 }
@@ -40,7 +40,7 @@ public class SinglePlayer {
             }else{
                 row = random.nextInt(tableBuilder.getRows());
                 column = random.nextInt(tableBuilder.getColumns());
-                if(validateOcupedPlace.isOcuped(table[row][column], cpu.figure.constantToString())){
+                if(validateOcupedPlace.isOcuped(table[row][column], Shapes.shapesList())){
                     continue;
                 }
                 Quotes.waitTheOponent();

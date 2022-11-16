@@ -1,13 +1,13 @@
 package logic.players;
 
 import logic.functionalities.*;
-import logic.features.Stuffs;
+import logic.features.Shapes;
 import java.time.LocalTime;
 
 public class Player implements actionsPlayer{
     protected String name;
     private LocalTime bestRecordTime;
-    public Stuffs.Shapes figure;
+    public String figure;
     private int coins;
     public Player(String name){
         setName(name);
