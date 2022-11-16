@@ -15,7 +15,7 @@ public class SinglePlayer {
     private LocalTime bestRecordTimeOnSingle;
     public static void startSinglePLayer(Player player) throws Exception {
         Scanner input = new Scanner(System.in);
-        CPU cpu = new CPU("CPU", Stuffs.OriginalShape.X);
+        CPU cpu = new CPU(Stuffs.OriginalShape.X);
         String[] figuresPlayers = {player.figure.toString(), cpu.figure.toString()};
         actionsPlayer[] playerMovements = {player, cpu};
         Quotes.choseSizeMessage();
@@ -51,6 +51,6 @@ public class SinglePlayer {
                 || TableBuilder.VerifieTheWinner.verifieWinner(table, cpu.figure)));
         TablePrinter.tablePrinter(table, tableBuilder.getRows(), tableBuilder.getColumns());
         Quotes.winnerQuote(figuresPlayers[(turno == 1) ? 0 : 1]);
-        player.setCoins((turno == 0) ? player.getCoins()+20 : player.getCoins());
+        player.setCoins((turno == 1) ? player.getCoins()+20 : player.getCoins());
     }
 }

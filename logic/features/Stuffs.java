@@ -18,16 +18,16 @@ public class Stuffs {
     }
 
     public enum NewShapes{
-        SIGNOMENOS("<"),
-        SIGNODOLLAR("$"),
-        HASTERISCO("#"),
-        INTERROGACION("?");
+        SIGNOMENOS("<", 40),
+        SIGNODOLLAR("$", 60),
+        HASTERISCO("#", 80),
+        INTERROGACION("?", 100);
 
-        private String newFigure;
-        NewShapes(String figure){
+        public final String newFigure;
+        public final int price;
+        NewShapes(String figure, int price){
             newFigure = figure;
+            this.price = price;
         }
-
-        public String getFigures(){ return newFigure; }
     }
 }
