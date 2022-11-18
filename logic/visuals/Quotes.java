@@ -54,6 +54,12 @@ public class Quotes {
         Thread.sleep(2000);
     }
 
-    public static void winnerQuote(String figure){ System.out.println("el ganador ha sido: " + figure); }
+    public static void winnerQuote(String figure, boolean thereIsWinner){
+        if(thereIsWinner){
+            System.out.println("el ganador ha sido: " + figure);
+        }else{
+            System.out.println("la tabla ha sido llenada y no hay ganador");
+        }
+    }
 
 }

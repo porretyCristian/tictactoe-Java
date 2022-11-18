@@ -1,6 +1,7 @@
 package logic.gameModes;
 import logic.features.Shapes;
 import logic.players.*;
+import logic.validations.ValidateOcuped;
 import logic.visuals.*;
 import logic.functionalities.*;
 import logic.validations.validateOcupedPlace;
@@ -51,11 +52,14 @@ public class SinglePlayer implements StartGame{
                     playerMovements[turno].moveFigure(row, column, table);
                 }
                 turno = (turno == 1) ? 0 : 1;
-            }while(!(TableBuilder.VerifieTheWinner.verifieWinner(table, player.figure)
+            }while(ValidateOcuped.isAvaliableYet(table)
+                    && !(TableBuilder.VerifieTheWinner.verifieWinner(table, player.figure)
                     || TableBuilder.VerifieTheWinner.verifieWinner(table, cpu.figure)));
             TablePrinter.tablePrinter(table, tableBuilder.getRows(), tableBuilder.getColumns());
-            isWinner = (turno == 1);
-            Quotes.winnerQuote(figuresPlayers[(turno == 1) ? 0 : 1]);
+            isWinner = (turno == 1) && TableBuilder.VerifieTheWinner.verifieWinner(table, player.figure);
+            Quotes.winnerQuote(figuresPlayers[(turno == 1) ? 0 : 1],
+                                (TableBuilder.VerifieTheWinner.verifieWinner(table, player.figure)
+                                || TableBuilder.VerifieTheWinner.verifieWinner(table, cpu.figure)));
             player.setCoins((turno == 1) ? player.getCoins()+20 : player.getCoins());
             Instant endGame = Instant.now();
             SinglePlayer.setHistorial(player.figure, player.getName(),
