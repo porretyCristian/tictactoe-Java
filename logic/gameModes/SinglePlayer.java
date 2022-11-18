@@ -6,15 +6,26 @@ import logic.visuals.*;
 import logic.functionalities.*;
 import logic.validations.validateOcupedPlace;
 import javax.swing.*;
+import java.awt.*;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
 
-public class SinglePlayer implements StartGame {
+public class SinglePlayer implements StartGame, AsignFigure {
     // Map<Map<String, String>, Map<String, String>>, Integer>
     protected static Map<Map<String, Map<String, String>>, Integer> historial = new Hashtable<Map<String, Map<String, String>>, Integer>();
     private ArrayList<Integer> bestRecordTimeOnSingle = new ArrayList<>();
 
+    @Override
+    public String asignAnFigure(Player player){
+        String figureCpu = "X";
+        Random random = new Random();
+        while (figureCpu.equalsIgnoreCase(player.figure)){
+            figureCpu = Shapes.shapesList()[random.nextInt(Shapes.shapesList().length)];
+        }
+        return figureCpu;
+    }
+    
     @Override
     public void goToGame(MainPlayer mainPlayer) throws Exception {
         if(Quotes.choseTheAction().equalsIgnoreCase("s")){ this.startGame(mainPlayer); }
@@ -24,7 +35,7 @@ public class SinglePlayer implements StartGame {
     @Override
     public void startGame(MainPlayer mainPlayer) throws Exception {
         Scanner input = new Scanner(System.in);
-        CPU cpu = new CPU(Shapes.X.figure);
+        CPU cpu = new CPU(asignAnFigure(mainPlayer));
         Player[] players = {mainPlayer, cpu};
         boolean isWinner = false;
         do {
@@ -76,7 +87,7 @@ public class SinglePlayer implements StartGame {
         }while(!(JOptionPane.showInputDialog("Desea continuar? X: no, another key: yes")
                                                                         .equalsIgnoreCase("X")));
     }
-    class ChangeTheTurn{ public static int changeTurn(int turn){ return (turn == 1) ? 0 : 1; } }
+    static class ChangeTheTurn{ public static int changeTurn(int turn){ return (turn == 1) ? 0 : 1; } }
     public static void setHistorial(Player winnerPlayer, Player loserPlayer, int time) {
         Map<String, String> winner = new HashMap<>(); winner.put(winnerPlayer.getName(), winnerPlayer.figure);
         Map<String, String> loser = new HashMap<>(); loser.put(loserPlayer.getName(), loserPlayer.figure);
