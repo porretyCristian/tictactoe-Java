@@ -3,6 +3,17 @@ import logic.functionalities.TableBuilder;
 import logic.validations.validateSize;
 import java.util.Scanner;
 public class Quotes {
+
+    public static String choseTheAction() throws Exception{
+        Scanner input = new Scanner(System.in);
+        System.out.print("que quieres hacer: empezar(s)   ver historial(h): ");
+        String selection = input.nextLine();
+        if(!(selection.equalsIgnoreCase("s")) && !(selection.equalsIgnoreCase("h"))){
+            throw new Exception("mala eleccion de accion a realizar");
+        }
+        return selection;
+    }
+
     public static void choseSizeMessage(){
         System.out.println("escoge el numero de...");
     }

@@ -10,25 +10,32 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
 
-public class SinglePlayer implements StartGame{
-    protected static Dictionary<ArrayList<String>, Integer> historial = new Hashtable<>();
+public class SinglePlayer implements StartGame {
+    // Map<Map<String, String>, Map<String, String>>, Integer>
+    protected static Map<Map<String, Map<String, String>>, Integer> historial = new Hashtable<Map<String, Map<String, String>>, Integer>();
     private ArrayList<Integer> bestRecordTimeOnSingle = new ArrayList<>();
+
     @Override
-    public void startGame(Player player) throws Exception {
+    public void goToGame(MainPlayer mainPlayer) throws Exception {
+        if(Quotes.choseTheAction().equalsIgnoreCase("s")){ this.startGame(mainPlayer); }
+        else{ ShowTheHistory.showHistory(historial); }
+    }
+
+    @Override
+    public void startGame(MainPlayer mainPlayer) throws Exception {
         Scanner input = new Scanner(System.in);
         CPU cpu = new CPU(Shapes.X.figure);
-        String[] figuresPlayers = {player.figure.toString(), cpu.figure.toString()};
-        actionsPlayer[] playerMovements = {player, cpu};
+        Player[] players = {mainPlayer, cpu};
         boolean isWinner = false;
         do {
-            SearchTheLowest.showTheBestTime(bestRecordTimeOnSingle, player, isWinner);
+            SearchTheLowest.showTheBestTime(bestRecordTimeOnSingle, mainPlayer, isWinner);
             Quotes.choseSizeMessage();
             TableBuilder tableBuilder = new TableBuilder(Quotes.rowsSizeMessage(input), Quotes.columnSizeMessage(input));
             String[][] table = tableBuilder.table();
             Random random = new Random();
             Quotes.flippingTheCoin();
             int turno = random.nextInt(2);
-            Quotes.chosingTheTurn(figuresPlayers[turno]);
+            Quotes.chosingTheTurn(players[turno].figure);
             Instant startGame = Instant.now();
             do {
                 TablePrinter.tablePrinter(table, tableBuilder.getRows(), tableBuilder.getColumns());
@@ -41,7 +48,7 @@ public class SinglePlayer implements StartGame{
                         Quotes.placeOcupedMessage();
                         continue;
                     }
-                    playerMovements[turno].moveFigure(row, column, table);
+                    players[turno].moveFigure(row, column, table);
                 }else{
                     row = random.nextInt(tableBuilder.getRows());
                     column = random.nextInt(tableBuilder.getColumns());
@@ -49,29 +56,32 @@ public class SinglePlayer implements StartGame{
                         continue;
                     }
                     Quotes.waitTheOponent();
-                    playerMovements[turno].moveFigure(row, column, table);
+                    players[turno].moveFigure(row, column, table);
                 }
-                turno = (turno == 1) ? 0 : 1;
+                turno = ChangeTheTurn.changeTurn(turno);
             }while(ValidateOcuped.isAvaliableYet(table)
-                    && !(TableBuilder.VerifieTheWinner.verifieWinner(table, player.figure)
+                    && !(TableBuilder.VerifieTheWinner.verifieWinner(table, mainPlayer.figure)
                     || TableBuilder.VerifieTheWinner.verifieWinner(table, cpu.figure)));
             TablePrinter.tablePrinter(table, tableBuilder.getRows(), tableBuilder.getColumns());
-            isWinner = (turno == 1) && TableBuilder.VerifieTheWinner.verifieWinner(table, player.figure);
-            Quotes.winnerQuote(figuresPlayers[(turno == 1) ? 0 : 1],
-                                (TableBuilder.VerifieTheWinner.verifieWinner(table, player.figure)
-                                || TableBuilder.VerifieTheWinner.verifieWinner(table, cpu.figure)));
-            player.setCoins((turno == 1) ? player.getCoins()+20 : player.getCoins());
+            isWinner = (turno == 1) && TableBuilder.VerifieTheWinner.verifieWinner(table, mainPlayer.figure);
             Instant endGame = Instant.now();
-            SinglePlayer.setHistorial(player.figure, player.getName(),
-                    (int) Duration.between(startGame, endGame).toMillis()/1000);
+            Quotes.winnerQuote(players[ChangeTheTurn.changeTurn(turno)].figure,
+                                (TableBuilder.VerifieTheWinner.verifieWinner(table, mainPlayer.figure)
+                                || TableBuilder.VerifieTheWinner.verifieWinner(table, cpu.figure)));
+            SinglePlayer.setHistorial(players[ChangeTheTurn.changeTurn(turno)],
+                                        players[ChangeTheTurn.changeTurn(turno)],
+                                    (int) Duration.between(startGame, endGame).toMillis()/1000);
+            mainPlayer.setCoins((turno == 0) ? mainPlayer.getCoins()+20 : mainPlayer.getCoins());
             bestRecordTimeOnSingle.add((int) Duration.between(startGame, endGame).toMillis()/1000);
         }while(!(JOptionPane.showInputDialog("Desea continuar? X: no, another key: yes")
                                                                         .equalsIgnoreCase("X")));
     }
-    public static void setHistorial(String figure, String name, int time) {
-        ArrayList<String> nameAndFigureList = new ArrayList<>();
-        nameAndFigureList.add(figure);
-        nameAndFigureList.add(name);
-        historial.put(nameAndFigureList, time);
+    class ChangeTheTurn{ public static int changeTurn(int turn){ return (turn == 1) ? 0 : 1; } }
+    public static void setHistorial(Player winnerPlayer, Player loserPlayer, int time) {
+        Map<String, String> winner = new HashMap<>(); winner.put(winnerPlayer.getName(), winnerPlayer.figure);
+        Map<String, String> loser = new HashMap<>(); loser.put(loserPlayer.getName(), loserPlayer.figure);
+        Map<String, Map<String, String>> players = new HashMap<>();
+        players.put("winner", winner); players.put("loser", loser);
+        historial.put(players, time);
     }
 }

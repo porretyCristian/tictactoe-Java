@@ -1,16 +1,16 @@
 package logic.validations;
 
 import logic.features.Shapes;
-import logic.players.Player;
+import logic.players.MainPlayer;
 
 import java.util.ArrayList;
 
 public class CoinsValidation {
 
-    public static boolean enoughMoney(Shapes[] constants, String firgure, Player player){
+    public static boolean enoughMoney(Shapes[] constants, String firgure, MainPlayer mainPlayer){
         ArrayList<String> figuresAvaliables = new ArrayList<>();
         for (Shapes constant:constants) {
-            if(constant.price <= player.getCoins()){
+            if(constant.price <= mainPlayer.getCoins()){
                 figuresAvaliables.add(constant.figure);
             }
         }

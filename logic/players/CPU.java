@@ -1,9 +1,7 @@
 package logic.players;
 
-import logic.features.Shapes;
-import logic.functionalities.*;
 
-public class CPU implements actionsPlayer {
+public class CPU extends Player {
     public final String name = "CPU";
     public String figure;
 

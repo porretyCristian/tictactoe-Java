@@ -1,5 +1,8 @@
 package logic.gameModes;
 
-import logic.players.Player;
+import logic.players.MainPlayer;
 
-public interface StartGame { void startGame(Player player) throws Exception; }
+public interface StartGame {
+    void startGame(MainPlayer mainPlayer) throws Exception;
+    void goToGame(MainPlayer mainPlayer) throws Exception;
+}
