@@ -9,18 +9,8 @@ import logic.visuals.Quotes;
 import javax.swing.*;
 import java.util.*;
 
-public class Multiplayer implements StartGame, AsignFigure {
+public class Multiplayer implements StartGame{
     protected static ArrayList<Map<String, Map<String, String>>> historial = new ArrayList<>();
-    @Override
-    public String asignAnFigure(MainPlayer player) throws Exception {
-        ShapesAvaliablesSecondUser shapesAvaliables = new ShapesAvaliablesSecondUser();
-        String figureSecondUser = shapesAvaliables.shapesAvaliables(player);
-        while (figureSecondUser.equalsIgnoreCase(player.figure)){
-            JOptionPane.showMessageDialog(null, "esa figura ya la tiene el usuario");
-            figureSecondUser = new ShapesAvaliablesSecondUser().shapesAvaliables(player);
-        }
-        return figureSecondUser;
-    }
 
     @Override
     public void goToGame(MainPlayer mainPlayer) throws Exception {
@@ -32,7 +22,9 @@ public class Multiplayer implements StartGame, AsignFigure {
     public void startGame(MainPlayer mainPlayer) throws Exception {
         Scanner input = new Scanner(System.in);
         SecondMainPlayer secondPlayer = new SecondMainPlayer(JOptionPane.showInputDialog("digite su nombre segundo usuario: "));
-        secondPlayer.setFigure(asignAnFigure(mainPlayer));
+        DealingShapesMultiPlayer dealerShapes = new DealingShapesMultiPlayer();
+        dealerShapes.shapesAvaliables(mainPlayer);
+        secondPlayer.setFigure(dealerShapes.choseShape(mainPlayer));
         Player[] players = {mainPlayer, secondPlayer};
         do {
             Quotes.choseSizeMessage();
@@ -45,7 +37,7 @@ public class Multiplayer implements StartGame, AsignFigure {
             do {
                 TablePrinter.tablePrinter(table, tableBuilder.getRows(), tableBuilder.getColumns());
                 int row, column;
-                Quotes.chosePlaceMessage();
+                Quotes.chosePlaceMessage(players[turno]);
                 row = Quotes.rowMoveMessage(input, tableBuilder) - 1;
                 column = Quotes.columnMoveMessage(input, tableBuilder) - 1;
                 if (validateOcupedPlace.isOcuped(table[row][column], Shapes.shapesList())) {

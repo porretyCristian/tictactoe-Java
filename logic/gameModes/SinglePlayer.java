@@ -50,7 +50,7 @@ public class SinglePlayer implements StartGame, AsignFigure {
                 TablePrinter.tablePrinter(table, tableBuilder.getRows(), tableBuilder.getColumns());
                 int row, column;
                 if(turno == 0){
-                    Quotes.chosePlaceMessage();
+                    Quotes.chosePlaceMessage(players[turno]);
                     row = Quotes.rowMoveMessage(input, tableBuilder) - 1;
                     column = Quotes.columnMoveMessage(input, tableBuilder) - 1;
                     if(validateOcupedPlace.isOcuped(table[row][column], Shapes.shapesList())){

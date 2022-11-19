@@ -1,5 +1,6 @@
 package logic.visuals;
 import logic.functionalities.TableBuilder;
+import logic.players.Player;
 import logic.validations.validateSize;
 import java.util.Scanner;
 public class Quotes {
@@ -18,8 +19,8 @@ public class Quotes {
         System.out.println("escoge el numero de...");
     }
 
-    public static void chosePlaceMessage(){
-        System.out.println("a que posicion te quieres mover especificamente");
+    public static void chosePlaceMessage(Player player){
+        System.out.println("a que posicion te quieres mover especificamente " + player.figure);
     }
 
     public static int rowsSizeMessage(Scanner input){

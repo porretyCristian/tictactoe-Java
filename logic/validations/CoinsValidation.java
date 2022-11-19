@@ -14,6 +14,6 @@ public class CoinsValidation {
                 figuresAvaliables.add(constant.figure);
             }
         }
-        return figuresAvaliables.contains(firgure);
+        return figuresAvaliables.contains(firgure.toUpperCase());
     }
 }
