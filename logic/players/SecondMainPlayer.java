@@ -5,7 +5,8 @@ import logic.functionalities.*;
 
 public class SecondMainPlayer extends MainPlayer{
 
-    public SecondMainPlayer(String name, Shapes figure) {
+    public SecondMainPlayer(String name) {
         super(name);
     }
 }
+    

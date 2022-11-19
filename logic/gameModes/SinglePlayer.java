@@ -6,18 +6,16 @@ import logic.visuals.*;
 import logic.functionalities.*;
 import logic.validations.validateOcupedPlace;
 import javax.swing.*;
-import java.awt.*;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
 
 public class SinglePlayer implements StartGame, AsignFigure {
-    // Map<Map<String, String>, Map<String, String>>, Integer>
     protected static Map<Map<String, Map<String, String>>, Integer> historial = new Hashtable<Map<String, Map<String, String>>, Integer>();
     private ArrayList<Integer> bestRecordTimeOnSingle = new ArrayList<>();
 
     @Override
-    public String asignAnFigure(Player player){
+    public String asignAnFigure(MainPlayer player){
         String figureCpu = "X";
         Random random = new Random();
         while (figureCpu.equalsIgnoreCase(player.figure)){
@@ -28,7 +26,7 @@ public class SinglePlayer implements StartGame, AsignFigure {
     
     @Override
     public void goToGame(MainPlayer mainPlayer) throws Exception {
-        if(Quotes.choseTheAction().equalsIgnoreCase("s")){ this.startGame(mainPlayer); }
+        if(Quotes.choseTheAction().equalsIgnoreCase("s")){ startGame(mainPlayer); }
         else{ ShowTheHistory.showHistory(historial); }
     }
 
@@ -87,7 +85,6 @@ public class SinglePlayer implements StartGame, AsignFigure {
         }while(!(JOptionPane.showInputDialog("Desea continuar? X: no, another key: yes")
                                                                         .equalsIgnoreCase("X")));
     }
-    static class ChangeTheTurn{ public static int changeTurn(int turn){ return (turn == 1) ? 0 : 1; } }
     public static void setHistorial(Player winnerPlayer, Player loserPlayer, int time) {
         Map<String, String> winner = new HashMap<>(); winner.put(winnerPlayer.getName(), winnerPlayer.figure);
         Map<String, String> loser = new HashMap<>(); loser.put(loserPlayer.getName(), loserPlayer.figure);

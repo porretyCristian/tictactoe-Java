@@ -1,7 +1,5 @@
 package logic.gameModes;
 
-import logic.players.Player;
+import logic.players.MainPlayer;
 
-public interface AsignFigure {
-    String asignAnFigure(Player player);
-}
+public interface AsignFigure { String asignAnFigure(MainPlayer player) throws Exception; }

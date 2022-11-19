@@ -1,4 +1,5 @@
 package logic.functionalities;
+
 import logic.features.Shapes;
 import logic.players.MainPlayer;
 import logic.validations.CoinsValidation;
@@ -6,11 +7,12 @@ import logic.validations.CoinsValidation;
 import javax.swing.*;
 import java.util.Arrays;
 
-public class ShowTheShapesAvaliables {
-    public static String shapesAvaliables(MainPlayer mainPlayer) throws Exception {
+public class ShapesAvaliablesSecondUser implements ShapesAvaliables{
+    @Override
+    public String shapesAvaliables(MainPlayer mainPlayer) throws Exception {
         System.out.print("figuras disponibles:");
         for(Shapes shape:Shapes.values()){
-            if(mainPlayer.getCoins() >= shape.price){
+            if(mainPlayer.getCoins() >= shape.price && !(mainPlayer.figure.equalsIgnoreCase(shape.figure))){
                 System.out.print("  " + shape.figure);
             }
         }
