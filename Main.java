@@ -1,3 +1,4 @@
+import logic.gameModes.Apuesta;
 import logic.gameModes.Multiplayer;
 import logic.gameModes.StartGame;
 import logic.players.*;
@@ -12,8 +13,9 @@ public class Main {
         DealingShapes dealer = new DealingShapes();
         dealer.shapesAvaliables(mainPlayer);
         mainPlayer.setFigure(dealer.choseShape(mainPlayer));
+        mainPlayer.setCoins(20);
         ArrayList<StartGame> gamesMode = new ArrayList<>();
-        gamesMode.add(new Multiplayer());
+        gamesMode.add(new Apuesta());
         gamesMode.get(0).goToGame(mainPlayer);
     }
 }

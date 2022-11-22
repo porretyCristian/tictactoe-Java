@@ -66,6 +66,15 @@ public class Quotes {
         Thread.sleep(2000);
     }
 
+    public static void waitingRandomMovements(String yourCpu, String figureInTurn) throws InterruptedException {
+        if(yourCpu.equalsIgnoreCase(figureInTurn)){
+            System.out.println("esperando que la figura que apostaste se mueva...");
+        }else{
+            System.out.println("esperando que el oponente se mueva...");
+        }
+        Thread.sleep(2000);
+    }
+
     public static void winnerQuote(String figure, boolean thereIsWinner){
         if(thereIsWinner){
             System.out.println("el ganador ha sido: " + figure);
