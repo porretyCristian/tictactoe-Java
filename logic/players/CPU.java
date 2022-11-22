@@ -2,13 +2,14 @@ package logic.players;
 
 
 public class CPU extends Player {
-    public final String name = "CPU";
     public String figure;
 
-    public CPU(String figure) {
+    public CPU(String name, String figure) {
         setFigure(figure);
+        setName(name);
     }
 
+    public void setName(String name){ this.name = name; }
     public void setFigure(String figure) {
         this.figure = figure;
     }

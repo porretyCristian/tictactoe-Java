@@ -39,7 +39,7 @@ public class Apuesta implements StartGame, AsignFigure{
         do{
             System.out.println("su monto es: " + mainPlayer.getCoins());
             int coinsToBet = betWithCoin.setTheBet(mainPlayer.getCoins());
-            CPU[] cpus = {new CPU(mainPlayer.figure), new CPU(asignAnFigure(mainPlayer))};
+            CPU[] cpus = {new CPU("your cpu", mainPlayer.figure), new CPU("cpu", asignAnFigure(mainPlayer))};
             Scanner input = new Scanner(System.in);
             Quotes.choseSizeMessage();
             TableBuilder tableBuilder = new TableBuilder(Quotes.rowsSizeMessage(input), Quotes.columnSizeMessage(input));

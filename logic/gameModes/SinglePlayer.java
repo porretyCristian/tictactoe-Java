@@ -33,7 +33,7 @@ public class SinglePlayer implements StartGame, AsignFigure {
     @Override
     public void startGame(MainPlayer mainPlayer) throws Exception {
         Scanner input = new Scanner(System.in);
-        CPU cpu = new CPU(asignAnFigure(mainPlayer));
+        CPU cpu = new CPU("CPU", asignAnFigure(mainPlayer));
         Player[] players = {mainPlayer, cpu};
         boolean isWinner = false;
         do {
