@@ -83,4 +83,20 @@ public class Quotes {
         }
     }
 
+
+    public static void showTheMatches(Player[][] semiFinals) throws InterruptedException {
+        for(Player[] match:semiFinals){
+            for(Player player:match){
+                System.out.println(player.getName() + "--|");
+            }
+        }
+        Thread.sleep(5000);
+    }
+
+    public static void showTheMatches(Player[] finalOrThird) throws InterruptedException {
+        for(Player player:finalOrThird){
+            System.out.println(player.getName() + "--|");
+        }
+        Thread.sleep(5000);
+    }
 }
