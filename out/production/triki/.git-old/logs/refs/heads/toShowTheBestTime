@@ -1,0 +1,7 @@
+0000000000000000000000000000000000000000 025ddfd9fbb9e96f12e2d84fe4ff3016c9fa6d7b cristiandev <cristianporretydev@gmail.com> 1668620990 -0500	branch: Created from HEAD
+025ddfd9fbb9e96f12e2d84fe4ff3016c9fa6d7b b9e2e61dc35803fc3b0976880088eb06d300cecf cristiandev <cristianporretydev@gmail.com> 1668628964 -0500	commit: - en la clase ShowTheShapesAvaliables se agrego un salto de linea debido
+b9e2e61dc35803fc3b0976880088eb06d300cecf 83ba9a42d61a4eb31dff4e8752084148b4a7c779 cristiandev <cristianporretydev@gmail.com> 1668694990 -0500	commit: - se crea la clase SearchTheLowest que tiene el metodo showTheBestTime
+83ba9a42d61a4eb31dff4e8752084148b4a7c779 044c0274fdc836ff3b374232afd77c313b503d25 cristiandev <cristianporretydev@gmail.com> 1668741315 -0500	commit: -se agrego una nueva validacion, que valida si la tabla ha sido llenada
+044c0274fdc836ff3b374232afd77c313b503d25 d17d39a2fe3b24de2931e781f9f1768038d635c5 cristiandev <cristianporretydev@gmail.com> 1668805664 -0500	commit: - vaciada(no borrada) la interfaz actionsPlayer, remplazada por la clase
+d17d39a2fe3b24de2931e781f9f1768038d635c5 5a6ee6b18a06f199cc4969a94dd06716a9c9383f cristiandev <cristianporretydev@gmail.com> 1668808195 -0500	commit: - se creo la interfaz AsignFigure que tiene el metodo asignAnFigure
+5a6ee6b18a06f199cc4969a94dd06716a9c9383f 84b3f5ba1aa0ebecf96e01c960d1603bf9a64b52 cristiandev <cristianporretydev@gmail.com> 1668871852 -0500	commit: - creando la interfaz ShapesAvaliables que tiene el metodo shapesAvaliables

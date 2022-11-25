@@ -80,7 +80,7 @@ public class SinglePlayer implements StartGame, AsignFigure {
             SinglePlayer.setHistorial(players[ChangeTheTurn.changeTurn(turno)],
                                         players[ChangeTheTurn.changeTurn(turno)],
                                     (int) Duration.between(startGame, endGame).toMillis()/1000);
-            mainPlayer.setCoins((turno == 0) ? mainPlayer.getCoins()+20 : mainPlayer.getCoins());
+            mainPlayer.setCoins((ChangeTheTurn.changeTurn(turno) == 0) ? mainPlayer.getCoins()+20 : mainPlayer.getCoins());
             bestRecordTimeOnSingle.add((int) Duration.between(startGame, endGame).toMillis()/1000);
         }while(!(JOptionPane.showInputDialog("Desea continuar? X: no, another key: yes")
                                                                         .equalsIgnoreCase("X")));

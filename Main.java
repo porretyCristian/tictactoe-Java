@@ -1,4 +1,5 @@
 import logic.gameModes.Apuesta;
+import logic.gameModes.MiniCup;
 import logic.gameModes.Multiplayer;
 import logic.gameModes.StartGame;
 import logic.players.*;
@@ -14,8 +15,7 @@ public class Main {
         dealer.shapesAvaliables(mainPlayer);
         mainPlayer.setFigure(dealer.choseShape(mainPlayer));
         mainPlayer.setCoins(20);
-        ArrayList<StartGame> gamesMode = new ArrayList<>();
-        gamesMode.add(new Apuesta());
-        gamesMode.get(0).goToGame(mainPlayer);
+        MiniCup gamesMode = new MiniCup();
+        gamesMode.goToGame(mainPlayer, "semi");
     }
 }

@@ -87,8 +87,9 @@ public class Quotes {
     public static void showTheMatches(Player[][] semiFinals) throws InterruptedException {
         for(Player[] match:semiFinals){
             for(Player player:match){
-                System.out.println(player.getName() + "--|");
+                System.out.println(player.getName());
             }
+            System.out.println("------");
         }
         Thread.sleep(5000);
     }
@@ -98,5 +99,13 @@ public class Quotes {
             System.out.println(player.getName() + "--|");
         }
         Thread.sleep(5000);
+    }
+
+    public static void championQuote(String figure) {
+        System.out.println("el campeon ha sido: " + figure);
+    }
+
+    public static void thirdQuote(String figure) {
+        System.out.println("el tercer lugar es para: " + figure);
     }
 }

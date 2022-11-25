@@ -1,0 +1,22 @@
+- se implemento el modo de juego de apuesta
+- se agrego a la clase Quotes el metodo waitingRandomMovements que se 
+  encarga de mostrar un mensaje que indica a quien de los jugadores
+  aleatorios les toca dar
+# Por favor ingresa el mensaje del commit para tus cambios. Las
+#  líneas que comiencen con '#' serán ignoradas, y un mensaje
+#  vacío aborta el commit.
+#
+# En la rama master
+# Cambios a ser confirmados:
+#	modificados:     ../Main.java
+#	modificados:     gameModes/Apuesta.java
+#	modificados:     visuals/Quotes.java
+#
+# Cambios no rastreados para el commit:
+#	modificados:     ../out/production/triki/Main.class
+#	modificados:     ../out/production/triki/logic/gameModes/Apuesta.class
+#	modificados:     ../out/production/triki/logic/visuals/Quotes.class
+#
+# Archivos sin seguimiento:
+#	../out/production/triki/logic/gameModes/Apuesta$betWithCoin.class
+#
