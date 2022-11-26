@@ -94,7 +94,7 @@ public class MiniCup {
         } else {
             if (fase.equalsIgnoreCase("final")) {
                 tablePositions.push(addToTable(thirdPlace[indexCpuLoser].getName(), thirdPlace[indexCpuLoser].figure));
-                tablePositions.push(addToTable(thirdPlace[1].getName(), thirdPlace[indexCpuLoser].figure));
+                tablePositions.push(addToTable(thirdPlace[indexCpuWinner].getName(), thirdPlace[indexCpuWinner].figure));
                 tablePositions.push(addToTable(finalGame[turno].getName(), finalGame[turno].figure));
                 tablePositions.push(addToTable(finalGame[ChangeTheTurn.changeTurn(turno)].getName(),
                         finalGame[ChangeTheTurn.changeTurn(turno)].figure));
@@ -106,10 +106,11 @@ public class MiniCup {
                 tablePositions.push(addToTable(finalGame[indexCpuLoser].getName(), finalGame[indexCpuLoser].figure));
                 tablePositions.push(addToTable(finalGame[indexCpuWinner].getName(),
                         finalGame[indexCpuWinner].figure));
-                Quotes.thirdQuote(finalGame[ChangeTheTurn.changeTurn(turno)].figure);
+                Quotes.thirdQuote(thirdPlace[ChangeTheTurn.changeTurn(turno)].figure);
             }
             ShowTableResult.showTheGroup(tablePositions);
         }
+        RunTheGame.run(mainPlayer);
     }
 
     public ArrayList<String> addToTable(String name, String figure){

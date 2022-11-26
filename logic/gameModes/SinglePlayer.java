@@ -84,6 +84,7 @@ public class SinglePlayer implements StartGame, AsignFigure {
             bestRecordTimeOnSingle.add((int) Duration.between(startGame, endGame).toMillis()/1000);
         }while(!(JOptionPane.showInputDialog("Desea continuar? X: no, another key: yes")
                                                                         .equalsIgnoreCase("X")));
+        RunTheGame.run(mainPlayer);
     }
     public static void setHistorial(Player winnerPlayer, Player loserPlayer, int time) {
         Map<String, String> winner = new HashMap<>(); winner.put(winnerPlayer.getName(), winnerPlayer.figure);

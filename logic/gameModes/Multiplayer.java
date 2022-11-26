@@ -55,6 +55,7 @@ public class Multiplayer implements StartGame{
                     players[ChangeTheTurn.changeTurn(turno)]);
         }while(!(JOptionPane.showInputDialog("Desea continuar? X: no, another key: yes")
                 .equalsIgnoreCase("X")));
+        RunTheGame.run(mainPlayer);
     }
 
     public static void setHistorial(Player winnerPlayer, Player loserPlayer){

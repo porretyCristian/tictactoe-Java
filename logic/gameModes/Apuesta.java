@@ -1,6 +1,7 @@
 package logic.gameModes;
 
 import logic.features.Shapes;
+import logic.functionalities.RunTheGame;
 import logic.functionalities.ShowTheHistory;
 import logic.functionalities.TableBuilder;
 import logic.functionalities.TablePrinter;
@@ -69,6 +70,7 @@ public class Apuesta implements StartGame, AsignFigure{
                     cpus[ChangeTheTurn.changeTurn(turno)]);
         }while (!(JOptionPane.showInputDialog("Desea continuar? X: no, another key: yes")
                 .equalsIgnoreCase("X")));
+        RunTheGame.run(mainPlayer);
     }
 
     public static void setHistorial(Player winnerPlayer, Player loserPlayer){
